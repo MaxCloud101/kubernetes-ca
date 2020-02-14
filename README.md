@@ -129,6 +129,54 @@ Kubernetes deployments
 
 ### 2.4 Interacting with kubernetes
 
+The kubernetes API server
+
+- Modify cluster state information by sending requests to the kubernetes API server
+- The API server is a master component that acs as the frontend for the cluster
+
+Interacting with kubernetes: Method 1 - REST API
+
+- It is possible but not common to work directly with the API server
+- You might need to if there is no Kubernetes Client Library for your programming language
+
+Interacting with kubernetes: Method 2 - CLIENT LIBRARIES
+
+- Handles authenticating and managing individual REST API request and responses
+- Kubernetes maintains official client libraries
+- Community-maintained librarie when no official library exists
+
+Interacting with kubernetes: Method 3 - KUBECTL
+
+- Issue high-level commands that are translated into REST API calls
+- Works with local and remote clusters
+
+Kubectl
+
+- kubernetes success correlates with kubectl skill
+- Manages all differents types of Kubernetes resources, and provides debugging and introspection features
+- Kubectl commands follow an easy to understand pattern
+
+Interacting with kubernetes: Method 4 - WEB DASHBOARD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
