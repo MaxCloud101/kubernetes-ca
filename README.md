@@ -158,6 +158,36 @@ Kubectl
 
 Interacting with kubernetes: Method 4 - WEB DASHBOARD
 
+## Deploying containerized applications to kubernetes
+
+### 3.1 Pods
+
+What are pods
+
+- Basic building block in kubernetes
+- One or more containers in a pod
+- Pod containers all share a container network
+- One IP address per pod
+
+Whats's in a pod declaration?
+
+- Container image
+- Container ports
+- Container restart policy
+- Resource limits
+
+Why use manifests?
+
+- Can check into source control
+- Easy to share
+- Easier to work with
+
+
+
+
+
+
+
 
 
 
