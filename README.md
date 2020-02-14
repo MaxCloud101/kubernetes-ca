@@ -61,6 +61,76 @@ Container orchestraion landscape
 - We will compare Kubernetes with other tools to get a better undestanding
 - Compare to: DCOS, Amazon ECS, and Docker swarm mode
 
+### 2.2 Deploying kubernetes
+
+Single-node kubernetes cluster
+
+- Docker Desktop for Mac and Windows
+- Minikube
+- Kubeadm
+
+Single node kubernetes clusters for continous integration
+
+- Create ephemeral clusters that start quickly and are in a pristine state for testing applications in kubernetes
+- Kubernetes-in-Docker (kind) is made especifically for this use case https://github.com/kubernetes-sigs/kind
+
+Multi-node kubernetes cluster
+
+- For your production workloads
+- Horizontal scaling
+- Tolerate node failures
+- Ask several key questions to decide which solution is best
+
+Fully-managed
+
+- Amazon EKS
+- AKS (Azure)
+- GKE (Google cloud)
+
+### 2.3 Kubernetes architecture
+
+A word about kubernetes terminology
+
+- Kuberenetes introduces its own dialect to the orchestation space
+- Understanding the terminology important part of success with kubernetes
+- We will define terms as they arise and the kubernetes glossary is available for reference
+
+Kubernetes architecture
+
+- Cluster refers to all of the machines collectively and can be throught of as the entire running system 
+- Nodes are machines in the cluster
+- Nodes are categorized as workers or masters
+- Worker nodes include software to run containers managed by the kubernetes control plane
+- The control plane is a set of APIs and software that Kubernetes users interact with
+- The APIs and sofware are referred to as master components
+
+Scheduling
+
+- Control plane schedules containers onto nodes
+- Scheduling descicions consider required CPU and other factors
+- Scheduling refers to the desicion process of placing containers onto node
+
+Kubernetes pods
+
+- Groups of containers
+- Pods are the smallest building blocks in kubernetes
+- More complex and useful abstractions built on top of pods
+
+Kubernetes services
+
+- Services define networking rules for exposing group of pods
+  - To other pods
+  - To the public internet
+
+Kubernetes deployments
+
+- Manage deploying configuration changes to running pods
+- Horizontal scaling
+
+### 2.4 Interacting with kubernetes
+
+
+
 
 
 
