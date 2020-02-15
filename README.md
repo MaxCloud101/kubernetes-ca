@@ -204,9 +204,20 @@ Pods that need to stay up and consistently good can request guaranteed resources
 Example: Create resources pod
 1.4-resources_pod.yaml
 
+### 3.2 Services
 
+- A service defines networking rules for accessing Pods in the cluster and from the internet
+- Use labels to select a group of pods
+- Service has a fixed ip address
+- Distribute requests across Pods in the group
 
+Example: Create a service
+2.1-web_service.yaml
 
+- To verify node ips
+```
+kubectl describe nodes | grep -i address -A
+```
 
 
 
