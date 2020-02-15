@@ -182,12 +182,27 @@ Why use manifests?
 - Easy to share
 - Easier to work with
 
+Example: Create simple pod
+1.1-basic_pod.yaml
 
+Example: Create simple pod with port
+1.2-port_pod.yaml
 
+Example: Create labeled pod
+1.2-labeled_pod.yaml
 
+Best Quality of Server
 
+Kubernetes provides different levels of Quality of Service to pods depending on what they request and what limits are set for them.
 
+Pods that need to stay up and consistently good can request guaranteed resources, while pods with less exacting requirements can use resources with less/no guarantee.
 
+- Guaranteed (QoS): Pods are considered top-priority and are guaranteed to not be killed until they exceed their limits.
+- Burstable (QoS): resources when available. Under system memory pressure, these containers are more likely to be killed once they exceed their requests and no Best-Effort pods exist.
+- Best-Effort (QoS): Pods will be treated as lowest priority. Processes in these pods are the first to get killed if the system runs out of memory. These containers can use any amount of free memory in the node though.
+
+Example: Create resources pod
+1.4-resources_pod.yaml
 
 
 
