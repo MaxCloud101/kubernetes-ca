@@ -334,6 +334,73 @@ To describe hpa (horizontal pod autoscaler)
 kubectl describe -n deployments hpa
 ```
 
+### 3.7 Rollouts
+
+- Rollouts update deployments
+- Any change to a deployments template triggers a rollout
+- Different rollout strategies are available
+
+Rolling updates
+
+- Default rollout strategy
+- Update in groups rather than all-at-once
+- Both old and new version running for some time
+- Alternative is the recreate strategy
+- Scaling is not a rollout
+- kubectl has commands to check, pause, resume and rollback (undo) rollouts
+
+### 3.8 Probes
+
+Readiness probes
+
+- Used to check when a Pod is ready to serve traffic/handle requests
+- Useful after startup to check external dependencies
+- Readiness probes set the Pod's ready condition. Services only send traffic to ready pods.
+
+Liveness probes
+
+- Detects when a pod enters a broken state
+- Kubernetes will restart the pod for you
+- Declare in the same way as readiness probes
+
+Declaring probes
+
+- Probes can be declared in a pod's containers
+- All containers probes must pass for the pod to pass
+- Probe actions can be a command that run in the container, an HTTP GET request, or opening a TCP socket
+
+Example probes:
+
+Data Tier (redis)
+
+Liveness: open TCP socker
+Readiness: redis-cli ping command
+
+7.2-data_tier.yaml
+
+App Tier (server)
+
+Liveness: HTTP GET /prove/liveness
+Readiness: HTTP GET /prove/readiness
+
+7.3-app_tier.yaml
+
+### 3.9 Init containers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
