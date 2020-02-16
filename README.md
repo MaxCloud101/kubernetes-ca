@@ -226,6 +226,12 @@ Kubernetes namespaces
 - Role-base access control (RBAC) to secure access per Namespace
 - Using namespace is a best practice
 
+Example: Create namespace
+3.1-namespace.yaml
+
+Example: Create a multi-container pod
+3.2-multi_container.yaml
+
 To see a log from specific container in pod
 
 ```
@@ -238,11 +244,27 @@ To see logs in real time in specific container
 kubectl logs -n microservice app poller -f
 ```
 
+### 3.4 Service Discovery
 
+Service discovery mechanisms
 
+- Environment variables 
+  - Service address automatically injected in containers
+  - Environment variables follow namig conventions based on service name
+- DNS
+  - DNS records automatically created in cluster's DNS
+  - Containers automatically configured to query cluster DNS
 
+Example: Create a data tier pod
+4.2-data_tier.yaml
 
+Example: Create pod with service discovery with environment variables
+4.3-app_tier.yaml
 
+Example: Create pod with service discovery with DNS
+4.4-support_tier.yaml
+
+### 3.5 Deployments
 
 
 
