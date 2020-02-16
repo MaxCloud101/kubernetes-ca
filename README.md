@@ -374,6 +374,7 @@ Example probes:
 Data Tier (redis)
 
 Liveness: open TCP socker
+
 Readiness: redis-cli ping command
 
 7.2-data_tier.yaml
@@ -381,12 +382,29 @@ Readiness: redis-cli ping command
 App Tier (server)
 
 Liveness: HTTP GET /prove/liveness
+
 Readiness: HTTP GET /prove/readiness
 
 7.3-app_tier.yaml
 
 ### 3.9 Init containers
 
+- Sometimes you need to wait for a service, downloads, dynamic or desicions before starting a pod's containers
+- Prefer to separate initialization wait logic from the container image
+- Initialization is tightly coupled to the main application (belongs in the pod)
+- Init containers allow you to run initialization tasks before starting the main containers
+
+Init containers
+
+- Pods can declare any number of init containers
+- Init containers run in order and to completion
+- Use their own images
+- Easy way to block or delay starting an application
+- Run every time a pod is created
+
+Example: Wait for redis ready to connection before container creation
+
+8.1-app_tier.yaml
 
 
 
