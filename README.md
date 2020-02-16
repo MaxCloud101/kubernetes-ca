@@ -406,7 +406,7 @@ Example: Wait for redis ready to connection before container creation
 
 8.1-app_tier.yaml
 
-### 3.9 volumes
+### 3.10 volumes
 
 - Sometimes useful to share data between containers in a Pod
 - Lifetime of a container file system is limited to the container's lifetime
@@ -451,6 +451,35 @@ Storage volume types
 Example: Create volumes
 
 9.2-pv_data_tier.yaml
+
+### 3.11 ConfigMaps and secrets
+
+- Until now all container configuration has been in the pod spec
+- This makes it less portable than it could be
+- If sensitive information such API keys and passwords is involved it presents a security issue
+
+ConfigMaps and secrets
+
+- Separate configuration from Pod specs
+- Results in easier to manage and more portable manifests
+- Both are similar but secrets are specifically for sensitive data
+- There are specialized types of Secrets for storing Docker registry credential and TLS certs
+
+Using configMaps and secrets
+
+- Data store in key value pairs
+- Pods must reference ConfigMaps and secrets to use their data
+- References can be made by mounting Volumes or setting environment variables that
+
+Example: ConfigMap
+
+10.2-data_tier_config.yaml
+
+Example: Secrets
+
+10.4-app_tier_secret.yaml
+
+
 
 
 
