@@ -158,7 +158,7 @@ Kubectl
 
 Interacting with kubernetes: Method 4 - WEB DASHBOARD
 
-## Deploying containerized applications to kubernetes
+## 3 Deploying containerized applications to kubernetes
 
 ### 3.1 Pods
 
@@ -479,12 +479,43 @@ Example: Secrets
 
 10.4-app_tier_secret.yaml
 
+## 4 Kubernetes ecosystem
 
+### 4.1 Kubernetes ecosystem
 
+- HELM
+  - Kubernetes' package manager
+  - Packages are called charts and are intalled on your cluster using the HELM cli
+  - Helm charts make it easy to share complete applications
+  - Search HELM hub for public charts hub.helm.sh
+  
+- Kuztomize.io
+  - Customize YAML manifest in kubernetes
+  - Helps you manage the complexity of your applications
+  - Works by using a kuztomization.yaml file that declares customization rules
+  - Original manifests are untocuhed and remain usable
 
+- Prometheus
+  - Open-source monitoring and alerting system
+  - A server for pulling in time series metric data and storing it
+  - Inspired by an internal monitoring tool at Google called borgmon
+  - De facto standard solution for monitoring kubernetes
 
+- Kubeflow
+  - Makes deployments of Machine Learning workflows on Kubernetes simple, scalable and portable
+  - A complete machine learning stack
+  - Leverate Kubernetes to deploy anywhere, autoscale, etc
+  
+- Knative
+  - Platform for building, deploying, and managing serverless workloads and kubernetes.
+  - Can be deployed anywhere with kubernetes, avoiding vendor lock-in
+  - Supported by Google, IBM and SAP
+  
+## 5 Course conclusion
 
+### 5.1 Course conclusion
 
+Next Learning Paths
 
 
 
