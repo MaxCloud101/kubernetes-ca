@@ -183,12 +183,15 @@ Why use manifests?
 - Easier to work with
 
 Example: Create simple pod
+
 1.1-basic_pod.yaml
 
 Example: Create simple pod with port
+
 1.2-port_pod.yaml
 
 Example: Create labeled pod
+
 1.2-labeled_pod.yaml
 
 Best Quality of Server
@@ -202,6 +205,7 @@ Pods that need to stay up and consistently good can request guaranteed resources
 - Best-Effort (QoS): Pods will be treated as lowest priority. Processes in these pods are the first to get killed if the system runs out of memory. These containers can use any amount of free memory in the node though.
 
 Example: Create resources pod
+
 1.4-resources_pod.yaml
 
 ### 3.2 Services
@@ -212,6 +216,7 @@ Example: Create resources pod
 - Distribute requests across Pods in the group
 
 Example: Create a service
+
 2.1-web_service.yaml
 
 - To verify node ips
@@ -227,9 +232,11 @@ Kubernetes namespaces
 - Using namespace is a best practice
 
 Example: Create namespace
+
 3.1-namespace.yaml
 
 Example: Create a multi-container pod
+
 3.2-multi_container.yaml
 
 To see a log from specific container in pod
@@ -256,25 +263,76 @@ Service discovery mechanisms
   - Containers automatically configured to query cluster DNS
 
 Example: Create a data tier pod
+
 4.2-data_tier.yaml
 
 Example: Create pod with service discovery with environment variables
+
 4.3-app_tier.yaml
 
 Example: Create pod with service discovery with DNS
+
 4.4-support_tier.yaml
 
 ### 3.5 Deployments
 
+- Represent multiple replicas of a pod
+- Describe a desired state that kubernetes needs to achieve
+- Deployment controller master component converges actual state to the desired state
 
+Example: Create deployment
 
+5.2-data_tier.yaml
 
+5.3-app_tier.yaml
 
+5.4-suppot_tier.yaml
 
+### 3.6 AutoScaling
 
+- Scale automatically base on CPU utilization (or custom metrics)
+- Set target CPU along with min and max replicas
+- Target CPU is expressed as a percentage of the Pod's CPU request
 
+Metrics
 
+- Autoscaling depends on metrics being collected
+- Metrics server is one solution for collecting metrics
+- Several manifest files are used to deploy Metrics server
 
+https://github.com/kubernetes-sigs/metrics-server
+
+Example: Create metrics server
+
+```
+kubectl create -f metrics-server/
+```
+To see pod resource utilization
+```
+watch kubectl top pods -n namespace
+```
+
+Example: Create deployment server
+
+5.2-app_tier_cpu_request.yaml
+
+Example: Create autoscaling
+
+5.2-autoscale.yaml
+
+To check pods createds in real time
+
+```
+watch -n 1 kubectl get -n namespace deployments app-tier
+```
+To see full list of shorthand notations, we can see here the horizontal pod autoscaler
+```
+kubectl api-resources
+```
+To describe hpa (horizontal pod autoscaler)
+```
+kubectl describe -n deployments hpa
+```
 
 
 
