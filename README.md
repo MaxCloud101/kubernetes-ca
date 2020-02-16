@@ -406,10 +406,51 @@ Example: Wait for redis ready to connection before container creation
 
 8.1-app_tier.yaml
 
+### 3.9 volumes
 
+- Sometimes useful to share data between containers in a Pod
+- Lifetime of a container file system is limited to the container's lifetime
+- Can lead to unexpected consequences if a container restarts
 
+Pod storage in kubernetes
 
+- Two high-level storage options: volumes and persistent volumes
+- Used by mounting a directory in one or more containers in a pod
+- Pods can use multiple volumes and persistent volumes
+- Difference between volumes and persistent volumes is how their lifetime is managed
 
+Volumes
+
+- Volumes are tied to a pod and their lifecycle
+- Share date between containers and tolerate container restarts
+- Use for non-durable storage that is deleted with the pod
+- Default volume type is emptyDir
+- Data is lost if Pod is rescheduled on a different node
+
+Persistent volumes
+
+- Independent of Pod's lifetime
+- Pods claim persistent volumes to use throughout their lifetime
+- Can be mounted by multiple pods on different nodes if underlying storage supports it
+- Can be provisioned statically in advance or dynamically on-demand
+
+Persistent volume Claims
+
+- Describe a pod's request for Persistent volume storage
+- Includes how much storage, type of storage, and access mode
+- Access mode can be read-write-one, read-only many, or read-write many
+- PVC stays pending if no PV can satisfy it and dynamic provisioning is not enabled
+- Connects to a pod throught a volume of type PVC
+
+Storage volume types
+
+- Wide variety of volume types to choose from
+- Use persistent volumes for more durable storage types
+- Suppot durable storage types include GCE Persistent disks, Azure disks, Amazon EBS, NFS, and iSCSI
+
+Example: Create volumes
+
+9.2-pv_data_tier.yaml
 
 
 
