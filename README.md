@@ -218,10 +218,25 @@ Example: Create a service
 ```
 kubectl describe nodes | grep -i address -A
 ```
+### 3.3 Multi-container pods
 
+Kubernetes namespaces
 
+- Namespaces separate resources according to users, environments or applications
+- Role-base access control (RBAC) to secure access per Namespace
+- Using namespace is a best practice
 
+To see a log from specific container in pod
 
+```
+kubectl logs -n microservice app counter
+```
+
+To see logs in real time in specific container
+
+```
+kubectl logs -n microservice app poller -f
+```
 
 
 
